@@ -4,9 +4,30 @@ export const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const slides = [
-    "images/inicio/prueba1.jpg",
-    "images/inicio/imagen1.png",
-    "images/inicio/imagen1.png",
+    {
+      image: "images/inicio/prueba1.jpg",
+      title: "JJK HOLDING S.A.C.",
+      description:
+        "Con más de 10 años de experiencia en el mercado peruano, JJK HOLDING S.A.C. ofrece soluciones logísticas integrales para contenedores y vehículos, adaptadas a las necesidades de clientes de diversos sectores, líneas navieras, BCO, y agentes de carga.",
+      buttonText: "Ver más",
+      buttonLink: "#",
+    },
+    {
+      image: "images/inicio/imagen1.png",
+      title: "JJK HOLDING S.A.C.",
+      description:
+        "Con más de 10 años de experiencia en el mercado peruano, JJK HOLDING S.A.C. ofrece soluciones logísticas integrales para contenedores y vehículos, adaptadas a las necesidades de clientes de diversos sectores, líneas navieras, BCO, y agentes de carga.",
+      buttonText: "Ver más",
+      buttonLink: "#",
+    },
+    {
+      image: "images/inicio/prueba1.jpg",
+      title: "JJK HOLDING S.A.C.",
+      description:
+        "Con más de 10 años de experiencia en el mercado peruano, JJK HOLDING S.A.C. ofrece soluciones logísticas integrales para contenedores y vehículos, adaptadas a las necesidades de clientes de diversos sectores, líneas navieras, BCO, y agentes de carga.",
+      buttonText: "Ver más",
+      buttonLink: "#",
+    },
   ];
 
   const handlePrev = () => {
@@ -32,7 +53,7 @@ export const Carousel = () => {
       data-carousel="slide"
     >
       {/* Carousel wrapper */}
-      <div className="relative h-56 md:h-96 lg:h-[700px] overflow-hidden rounded-lg">
+      <div className="relative w-full h-[300px] sm:h-96 lg:h-[650px] overflow-hidden rounded-lg">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -42,10 +63,31 @@ export const Carousel = () => {
             data-carousel-item={index === currentIndex}
           >
             <img
-              src={slide}
+              src={slide.image}
               className="absolute block w-full h-full object-cover"
               alt={`Slide ${index + 1}`}
             />
+            {/* Content overlay */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-white bg-gradient-to-t from-black via-transparent to-transparent">
+              {/* Title and description */}
+              <div className="text-center px-6 md:px-12">
+                <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-4">
+                  {slide.title}
+                </h2>
+                <p className="text-sm md:text-lg lg:text-xl line-clamp-4 mb-6">
+                  {slide.description}
+                </p>
+              </div>
+              {/* Central button */}
+              <div className="flex justify-center w-full">
+                <a
+                  href={slide.buttonLink}
+                  className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+                >
+                  {slide.buttonText}
+                </a>
+              </div>
+            </div>
           </div>
         ))}
       </div>
@@ -76,7 +118,7 @@ export const Carousel = () => {
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70">
           <svg
-            className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+            className="w-4 h-4 text-black dark:text-gray-800 rtl:rotate-180"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
