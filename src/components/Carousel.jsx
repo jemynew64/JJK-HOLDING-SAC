@@ -4,8 +4,7 @@ export const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const slides = [
-    "images/inicio/imagen1.png",
-    "images/inicio/imagen1.png",
+    "images/inicio/prueba1.jpg",
     "images/inicio/imagen1.png",
     "images/inicio/imagen1.png",
   ];
@@ -33,7 +32,7 @@ export const Carousel = () => {
       data-carousel="slide"
     >
       {/* Carousel wrapper */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <div className="relative h-56 md:h-96 lg:h-[700px] overflow-hidden rounded-lg">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -44,7 +43,7 @@ export const Carousel = () => {
           >
             <img
               src={slide}
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="absolute block w-full h-full object-cover"
               alt={`Slide ${index + 1}`}
             />
           </div>
@@ -57,7 +56,7 @@ export const Carousel = () => {
           <button
             key={index}
             type="button"
-            className={`w-3 h-3 rounded-full ${
+            className={`w-3 h-3 rounded-full transition-colors duration-300 ${
               index === currentIndex
                 ? "bg-blue-600"
                 : "bg-gray-300 dark:bg-gray-700"
@@ -115,7 +114,6 @@ export const Carousel = () => {
               d="m1 9 4-4-4-4"
             />
           </svg>
-          <span className="sr-only">Next</span>
         </span>
       </button>
     </div>
