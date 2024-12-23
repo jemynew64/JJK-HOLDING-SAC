@@ -40,7 +40,7 @@ export const Navbar = () => {
         <div
           className={`${
             isOpen ? "block" : "hidden"
-          } absolute top-full left-0 w-full bg-white md:block md:w-auto md:relative md:top-0 md:bg-white md:border-none transition-all duration-300 ease-in-out`}
+          } absolute top-full left-0 w-full bg-white md:block md:w-auto md:relative md:top-0 md:bg-white md:border-none transition-all duration-300 ease-in-out z-50`}
         >
           <ul className="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 rounded-lg">
             {["INICIO", "NOSOTROS", "SERVICIOS", "CLIENTES"].map((item) => (

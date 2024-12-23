@@ -53,7 +53,7 @@ export const Carousel = () => {
       data-carousel="slide"
     >
       {/* Carousel wrapper */}
-      <div className="relative w-full h-[300px] sm:h-96 lg:h-[650px] overflow-hidden rounded-lg">
+      <div className="relative w-full h-[300px] sm:h-96 lg:h-[650px] overflow-hidden ">
         {slides.map((slide, index) => (
           <div
             key={index}
