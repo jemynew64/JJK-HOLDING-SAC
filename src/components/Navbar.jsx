@@ -69,7 +69,7 @@ export const Navbar = () => {
             ))}
             <li>
               <Link
-                to="/contacto"
+                to="/contactos"
                 className="block py-2 px-3 text-white bg-green-500 rounded hover:bg-green-600 transition-all duration-300 ease-in-out"
               >
                 CONTACTANOS

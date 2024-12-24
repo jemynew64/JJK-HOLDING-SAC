@@ -1,7 +1,6 @@
-import HorarioAtencion from "../components/HorarioAtencion";
-import { Mapa } from "../components/Mapa";
 import { Navbar } from "../components/Navbar";
 import { Servicios } from "../components/Servicios";
+import { Footer } from "../components/Footer";
 
 export const PaginaServicios = () => {
   return (
@@ -9,9 +8,7 @@ export const PaginaServicios = () => {
       <div className="">
         <Navbar />
         <Servicios />
-        <h1>footer</h1>
-        <Mapa />
-        <HorarioAtencion />
+        <Footer />
       </div>
     </>
   );

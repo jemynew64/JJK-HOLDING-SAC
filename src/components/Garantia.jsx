@@ -1,6 +1,6 @@
 export const Garantia = () => {
   return (
-    <div className="bg-fondogarantia bg-cover bg-center flex flex-col md:flex-row p-8 gap-6">
+    <div className="bg-fondogarantia bg-cover bg-center flex flex-col md:flex-row p-20 gap-6">
       {/* Contenido textual */}
       <div className="bg-white/80 p-6 rounded-md flex-1 md:ml-20 lg:ml-32">
         <h2 className="text-xl font-bold mb-4">GARANTÍA DE BUEN SERVICIO</h2>

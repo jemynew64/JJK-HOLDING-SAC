@@ -115,16 +115,16 @@ export const Servicios = () => {
   ];
 
   return (
-    <>
+    <div className="mb-10">
       {/* Sección de encabezado */}
       <div
-        className="bg-custom-green-4 text-white text-center relative overflow-hidden"
+        className="bg-custom-green-4 text-white text-center relative overflow-hidden "
         style={{
           clipPath: "ellipse(100% 80% at 50% 10%)",
         }}
       >
-        <div className="p-8 sm:p-12 lg:p-16 h-[375px] sm:h-[425px] lg:h-[450px] flex flex-col justify-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-8">
+        <div className="p-8 sm:p-12 lg:p-16 h-[375px] sm:h-[425px] lg:h-[450px] flex flex-col">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-10 mt-14 justify-center md:justify-start">
             {seleccionado === "containers" ? "CONTAINERS" : "VEHÍCULOS"}
           </h2>
           <p className="text-sm sm:text-base md:text-2xl lg:text-2xl mx-8 sm:mx-16 lg:mx-60">
@@ -136,7 +136,7 @@ export const Servicios = () => {
       </div>
 
       {/* Botones para cambiar entre containers y vehículos */}
-      <div className="flex justify-center mb-4 space-x-6">
+      <div className="flex justify-center  space-x-6">
         <button
           onClick={() => setSeleccionado("containers")}
           className={`px-8 py-3 rounded-lg  transition-all duration-300 ease-in-out transform ${
@@ -192,6 +192,6 @@ export const Servicios = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };

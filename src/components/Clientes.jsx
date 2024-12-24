@@ -14,7 +14,7 @@ export const Clientes = () => {
   ];
 
   return (
-    <>
+    <div className="mb-12 bg-gray-50">
       <div
         className="bg-custom-green-4 text-white text-center relative overflow-hidden"
         style={{
@@ -48,6 +48,6 @@ export const Clientes = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };

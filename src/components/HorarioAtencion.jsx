@@ -1,6 +1,6 @@
 const HorarioAtencion = () => {
   return (
-    <div className="bg-gray-100 text-gray-800 shadow-lg rounded-lg p-6 max-w-md mx-auto transform transition-transform hover:scale-105 hover:shadow-xl m-10">
+    <div className="bg-gray-100 text-gray-800 shadow-lg rounded-lg p-6 max-w-md mx-auto transform transition-transform hover:scale-105 hover:shadow-xl m-16">
       <h2 className="text-2xl font-bold text-center text-custom-green-4 mb-4">
         Horario de Atención
       </h2>

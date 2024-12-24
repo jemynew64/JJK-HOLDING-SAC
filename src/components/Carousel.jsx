@@ -1,32 +1,33 @@
 import { useState } from "react";
+import { Link } from "react-router-dom"; // Importa Link de react-router-dom
 
 export const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const slides = [
     {
-      image: "images/inicio/prueba1.jpg",
+      image: "images/inicio/carusel1.jpg",
       title: "JJK HOLDING S.A.C.",
       description:
         "Con más de 10 años de experiencia en el mercado peruano, JJK HOLDING S.A.C. ofrece soluciones logísticas integrales para contenedores y vehículos, adaptadas a las necesidades de clientes de diversos sectores, líneas navieras, BCO, y agentes de carga.",
       buttonText: "Ver más",
-      buttonLink: "#",
+      buttonLink: "/servicios",
     },
     {
-      image: "images/inicio/imagen1.png",
-      title: "JJK HOLDING S.A.C.",
+      image: "images/inicio/carusel2.jpg",
+      title: "Innovación y Tecnología",
       description:
-        "Con más de 10 años de experiencia en el mercado peruano, JJK HOLDING S.A.C. ofrece soluciones logísticas integrales para contenedores y vehículos, adaptadas a las necesidades de clientes de diversos sectores, líneas navieras, BCO, y agentes de carga.",
+        "Utilizamos tecnología avanzada como GPS Tracking y aplicaciones en la nube para monitorear y gestionar nuestros servicios en tiempo real, ofreciendo a nuestros clientes información precisa y accesible desde cualquier lugar.",
       buttonText: "Ver más",
-      buttonLink: "#",
+      buttonLink: "/servicios",
     },
     {
-      image: "images/inicio/prueba1.jpg",
-      title: "JJK HOLDING S.A.C.",
+      image: "images/inicio/carusel3.jpg",
+      title: "Compromiso con la Calidad",
       description:
-        "Con más de 10 años de experiencia en el mercado peruano, JJK HOLDING S.A.C. ofrece soluciones logísticas integrales para contenedores y vehículos, adaptadas a las necesidades de clientes de diversos sectores, líneas navieras, BCO, y agentes de carga.",
+        "Contamos con certificaciones que avalan nuestra excelencia y nos encontramos en constante mejora, trabajando para obtener reconocimientos como la certificación BASC, que refuerzan nuestro liderazgo en el sector logístico.",
       buttonText: "Ver más",
-      buttonLink: "#",
+      buttonLink: "/servicios",
     },
   ];
 
@@ -53,7 +54,7 @@ export const Carousel = () => {
       data-carousel="slide"
     >
       {/* Carousel wrapper */}
-      <div className="relative w-full h-[300px] sm:h-96 lg:h-[650px] overflow-hidden ">
+      <div className="relative w-full h-[300px] sm:h-96 lg:h-[650px] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -71,21 +72,21 @@ export const Carousel = () => {
             <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-white bg-gradient-to-t from-black via-transparent to-transparent">
               {/* Title and description */}
               <div className="text-center px-6 md:px-12">
-                <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-4">
+                <h2 className="text-xl md:text-3xl lg:text-4xl font-bold mb-4 text-shadow-lg">
                   {slide.title}
                 </h2>
-                <p className="text-sm md:text-lg lg:text-xl line-clamp-4 mb-6">
+                <p className="text-sm md:text-base lg:text-xl line-clamp-4 mb-6 text-shadow-md">
                   {slide.description}
                 </p>
               </div>
               {/* Central button */}
               <div className="flex justify-center w-full">
-                <a
-                  href={slide.buttonLink}
-                  className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition"
+                <Link
+                  to={slide.buttonLink} // Usamos 'to' en lugar de 'href'
+                  className="px-6 py-2 bg-custom-green-2 text-white rounded-full hover:bg-blue-700 transition"
                 >
                   {slide.buttonText}
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -100,7 +101,7 @@ export const Carousel = () => {
             type="button"
             className={`w-3 h-3 rounded-full transition-colors duration-300 ${
               index === currentIndex
-                ? "bg-blue-600"
+                ? "bg-custom-green-2"
                 : "bg-gray-300 dark:bg-gray-700"
             }`}
             aria-current={index === currentIndex}

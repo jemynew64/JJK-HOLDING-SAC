@@ -46,7 +46,7 @@ export const ClientesCarousel = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full p-10">
       {/* Sección del título y la descripción */}
       <div className="w-full bg-white py-8 px-4 text-center">
         <h2 className="text-3xl font-bold mb-4">PRINCIPALES CLIENTES</h2>
