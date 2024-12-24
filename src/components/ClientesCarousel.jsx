@@ -61,8 +61,8 @@ export const ClientesCarousel = () => {
       </div>
 
       {/* Sección del carrusel */}
-      <div className="w-full bg-amber-300 py-8">
-        <div className="relative w-full mx-auto overflow-hidden rounded-lg bg-red-400">
+      <div className="w-full py-8">
+        <div className="relative w-full mx-auto overflow-hidden rounded-lg ">
           <div
             className="flex transition-transform duration-500"
             style={{

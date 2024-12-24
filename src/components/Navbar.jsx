@@ -1,18 +1,28 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation(); // Hook para obtener la ruta actual
+
+  // Lista de rutas y etiquetas
+  const links = [
+    { label: "INICIO", path: "/inicio" },
+    { label: "NOSOTROS", path: "/nosotros" },
+    { label: "SERVICIOS", path: "/servicios" },
+    { label: "CLIENTES", path: "/contacto" },
+  ];
 
   return (
     <nav className="border-b-2 border-gray-200 relative">
       <div className="flex flex-wrap items-center justify-center p-4 gap-8">
         {/* Logo */}
-        <a href="#" className="flex flex-row items-center md:flex-row">
+        <Link to="/" className="flex flex-row items-center md:flex-row">
           <img src="images/inicio/Logo.png" className="h-12 mr-12" alt="Logo" />
           <span className="text-xl font-semibold text-black text-center md:text-left">
             JJK HOLDING SAC
           </span>
-        </a>
+        </Link>
 
         {/* Navbar Toggle */}
         <button
@@ -43,27 +53,27 @@ export const Navbar = () => {
           } absolute top-full left-0 w-full bg-white md:block md:w-auto md:relative md:top-0 md:bg-white md:border-none transition-all duration-300 ease-in-out z-50`}
         >
           <ul className="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 rounded-lg">
-            {["INICIO", "NOSOTROS", "SERVICIOS", "CLIENTES"].map((item) => (
-              <li key={item}>
-                <a
-                  href="#"
+            {links.map(({ label, path }) => (
+              <li key={label}>
+                <Link
+                  to={path}
                   className={`block py-2 px-3 text-black transition-all duration-300 ease-in-out ${
-                    item === "INICIO"
-                      ? "font-bold underline"
-                      : "hover:bg-green-400 hover:text-white transition-colors"
+                    location.pathname === path
+                      ? "font-bold underline text-green-500"
+                      : "hover:bg-green-400 hover:text-white"
                   }`}
                 >
-                  {item}
-                </a>
+                  {label}
+                </Link>
               </li>
             ))}
             <li>
-              <a
-                href="#"
+              <Link
+                to="/contacto"
                 className="block py-2 px-3 text-white bg-green-500 rounded hover:bg-green-600 transition-all duration-300 ease-in-out"
               >
                 CONTACTANOS
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
