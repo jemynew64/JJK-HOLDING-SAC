@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const ClientesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
+  const carouselRef = useRef(null);
+  const autoSlideInterval = useRef(null); // Referencia al intervalo de deslizamiento automático
+  const touchStartX = useRef(0); // Para detectar el deslizamiento táctil
 
   const logos = [
     { image: "images/inicio/dpworld.png", alt: "DP World" },
@@ -20,16 +23,30 @@ export const ClientesCarousel = () => {
 
   useEffect(() => {
     const updateItemsPerView = () => {
-      setItemsPerView(window.innerWidth >= 1024 ? 3 : 1);
+      const newItemsPerView = window.innerWidth >= 1024 ? 3 : 1;
+      setItemsPerView(newItemsPerView);
+
+      // Reajustar el currentIndex cuando se cambia el número de items por vista
+      const totalSlides = Math.ceil(logos.length / newItemsPerView);
+      if (currentIndex >= totalSlides) {
+        setCurrentIndex(totalSlides - 1); // Asegurarse de que currentIndex esté dentro del rango válido
+      }
     };
 
     updateItemsPerView();
     window.addEventListener("resize", updateItemsPerView);
 
+    // Inicia el deslizamiento automático al montar el componente
+    autoSlideInterval.current = setInterval(handleNext, 4000);
+
+    // Limpia el intervalo cuando el componente se desmonte
     return () => {
       window.removeEventListener("resize", updateItemsPerView);
+      if (autoSlideInterval.current) {
+        clearInterval(autoSlideInterval.current);
+      }
     };
-  }, []);
+  }, [currentIndex]);
 
   const totalSlides = Math.ceil(logos.length / itemsPerView);
 
@@ -43,6 +60,47 @@ export const ClientesCarousel = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
     );
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX; // Guarda la posición inicial del toque
+  };
+
+  const handleTouchMove = (e) => {
+    const touchEndX = e.touches[0].clientX; // Posición del toque al mover
+    const diff = touchStartX.current - touchEndX; // Diferencia de movimiento
+
+    // Si el movimiento fue suficiente, cambia de slide
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+      touchStartX.current = touchEndX; // Actualiza la posición inicial
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    touchStartX.current = e.clientX; // Guarda la posición inicial del mouse
+  };
+
+  const handleMouseMove = (e) => {
+    if (!touchStartX.current) return;
+    const diff = touchStartX.current - e.clientX; // Diferencia del movimiento del ratón
+
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+      touchStartX.current = e.clientX; // Actualiza la posición inicial
+    }
+  };
+
+  const handleMouseUp = () => {
+    touchStartX.current = null; // Restablece la posición del ratón
   };
 
   return (
@@ -61,8 +119,17 @@ export const ClientesCarousel = () => {
       </div>
 
       {/* Sección del carrusel */}
-      <div className="w-full py-8">
-        <div className="relative w-full mx-auto overflow-hidden rounded-lg ">
+      <div
+        ref={carouselRef}
+        className="w-full py-8"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+      >
+        <div className="relative w-full mx-auto overflow-hidden rounded-lg">
           <div
             className="flex transition-transform duration-500"
             style={{
