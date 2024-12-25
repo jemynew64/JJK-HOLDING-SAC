@@ -10,10 +10,12 @@ import { PaginaServicios } from "./pages/PaginaServicios";
 import { PaginaClientes } from "./pages/PaginaClientes";
 import { PaginaContactanos } from "./pages/PaginaContactanos";
 import { PaginaServiciosExtra } from "./pages/PaginaServiciosExtra";
+import { ScrollToTop } from "./components/ScrollToTop"; // Importamos el componente ScrollToTop
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <main>
         <Routes>
           {/* Ruta para / redirige a /inicio */}
