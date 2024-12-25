@@ -9,6 +9,7 @@ import { PaginaNosotros } from "./pages/PaginaNosotros";
 import { PaginaServicios } from "./pages/PaginaServicios";
 import { PaginaClientes } from "./pages/PaginaClientes";
 import { PaginaContactanos } from "./pages/PaginaContactanos";
+import { PaginaServiciosExtra } from "./pages/PaginaServiciosExtra";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/servicios" element={<PaginaServicios />} />
           <Route path="/contacto" element={<PaginaClientes />} />
           <Route path="/contactos" element={<PaginaContactanos />} />
+          <Route path="/serviciosextra" element={<PaginaServiciosExtra />} />
 
           {/* Ruta para páginas no definidas */}
           <Route path="*" element={<Navigate to="/inicio" replace />} />
