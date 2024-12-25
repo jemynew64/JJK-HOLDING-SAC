@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const ServiciosDestacados = () => {
   const servicios = [
     {
@@ -34,24 +36,24 @@ export const ServiciosDestacados = () => {
             className="flex-grow bg-white border border-gray-200 rounded-lg shadow"
           >
             <br />
-            <a href="#">
+            <Link to="/servicios">
               <img
                 className="rounded-t-lg w-full h-48 object-contain"
                 src={servicio.image}
                 alt={servicio.title}
               />
-            </a>
+            </Link>
             <div className="p-5 text-center">
-              <a href="#">
+              <Link to="/servicios">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
                   {servicio.title}
                 </h5>
-              </a>
+              </Link>
               <p className="mb-3 font-normal text-gray-700">
                 {servicio.description}
               </p>
-              <a
-                href="#"
+              <Link
+                to="/servicios"
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300"
               >
                 VER MÁS
@@ -70,19 +72,19 @@ export const ServiciosDestacados = () => {
                     d="M1 5h12m0 0L9 1m4 4L9 9"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         ))}
       </div>
 
       {/* Botón al centro debajo de las tarjetas */}
-      <a
-        href="#"
+      <Link
+        to="/servicios"
         className="mt-8 px-4 py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md text-base font-medium shadow-md"
       >
         Ir a los servicios
-      </a>
+      </Link>
     </div>
   );
 };

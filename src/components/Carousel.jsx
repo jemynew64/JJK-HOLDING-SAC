@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // Importa Link de react-router-dom
 
 export const Carousel = () => {
@@ -46,6 +46,16 @@ export const Carousel = () => {
   const goToSlide = (index) => {
     setCurrentIndex(index);
   };
+
+  useEffect(() => {
+    // Cambia al siguiente slide cada 5 segundos (5000ms)
+    const intervalId = setInterval(() => {
+      handleNext();
+    }, 5000);
+
+    // Limpiar el intervalo cuando el componente se desmonte
+    return () => clearInterval(intervalId);
+  }, [currentIndex]); // La dependencia es currentIndex para asegurarse de que el siguiente se active correctamente
 
   return (
     <div

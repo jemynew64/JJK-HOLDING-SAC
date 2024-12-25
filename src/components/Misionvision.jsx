@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const Misionvision = () => {
   return (
     <div
@@ -17,9 +19,9 @@ export const Misionvision = () => {
               <img
                 src="images/nosotros/mision.png"
                 alt="Misión"
-                className="w-24 h-24 object-contain" // Aumenté el tamaño aquí
+                className="w-24 h-24 object-contain"
               />
-            </div>{" "}
+            </div>
             <br />
             <h3
               className="text-2xl font-semibold text-center mb-4"
@@ -33,18 +35,24 @@ export const Misionvision = () => {
               responsable con la seguridad, salud y el medio ambiente.
             </p>
             {/* Botón Ver Más */}
-            <button
-              className="w-full mt-4 py-2"
-              style={{
-                backgroundColor: "#06FF79",
-                color: "#fff",
-                borderRadius: "0.5rem",
-              }}
-              onMouseEnter={(e) => (e.target.style.backgroundColor = "#05e56a")}
-              onMouseLeave={(e) => (e.target.style.backgroundColor = "#06FF79")}
-            >
-              Ver más
-            </button>
+            <Link to="/servicios">
+              <button
+                className="w-full mt-4 py-2"
+                style={{
+                  backgroundColor: "#06FF79",
+                  color: "#fff",
+                  borderRadius: "0.5rem",
+                }}
+                onMouseEnter={(e) =>
+                  (e.target.style.backgroundColor = "#05e56a")
+                }
+                onMouseLeave={(e) =>
+                  (e.target.style.backgroundColor = "#06FF79")
+                }
+              >
+                Ver más
+              </button>
+            </Link>
             <br />
           </div>
         </div>
@@ -57,9 +65,9 @@ export const Misionvision = () => {
               <img
                 src="images/nosotros/vision.png"
                 alt="Visión"
-                className="w-24 h-24 object-contain" // Aumenté el tamaño aquí también
+                className="w-24 h-24 object-contain"
               />
-            </div>{" "}
+            </div>
             <br />
             <h3
               className="text-2xl font-semibold text-center mb-4"
@@ -74,18 +82,24 @@ export const Misionvision = () => {
               S.A.C..
             </p>
             {/* Botón Ver Más */}
-            <button
-              className="w-full mt-4 py-2"
-              style={{
-                backgroundColor: "#06FF79",
-                color: "#fff",
-                borderRadius: "0.5rem",
-              }}
-              onMouseEnter={(e) => (e.target.style.backgroundColor = "#05e56a")}
-              onMouseLeave={(e) => (e.target.style.backgroundColor = "#06FF79")}
-            >
-              Ver más
-            </button>
+            <Link to="/servicios">
+              <button
+                className="w-full mt-4 py-2"
+                style={{
+                  backgroundColor: "#06FF79",
+                  color: "#fff",
+                  borderRadius: "0.5rem",
+                }}
+                onMouseEnter={(e) =>
+                  (e.target.style.backgroundColor = "#05e56a")
+                }
+                onMouseLeave={(e) =>
+                  (e.target.style.backgroundColor = "#06FF79")
+                }
+              >
+                Ver más
+              </button>
+            </Link>
           </div>
         </div>
       </div>

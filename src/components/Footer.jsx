@@ -14,7 +14,7 @@ export const Footer = () => {
             {/* Redes sociales debajo del logo */}
             <div className="flex space-x-4 mt-4">
               <a
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/issegur/videos/jjk-holding-sac-empresa-premiada-en-los-premios-issegur-2024-empresas-m%C3%A1s-segura/987468322764398/?locale=tl_PH"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -25,7 +25,7 @@ export const Footer = () => {
                 />
               </a>
               <a
-                href="https://www.linkedin.com"
+                href="https://pe.linkedin.com/company/jjk-holding-sac"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -35,7 +35,11 @@ export const Footer = () => {
                   className="h-8 w-8"
                 />
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://pe.indeed.com/cmp/Jjk-Holding-S.a.c."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="images/inicio/twitter.png"
                   alt="Twitter"
